@@ -8,7 +8,7 @@
  */
 #include <iostream>
 #include <getopt.h>
-#include "neutronClientMonitor.hh"
+    
 
 using namespace std;
 using namespace std::tr1;
@@ -51,14 +51,20 @@ void doMonitor(string const &name, string const &request, double timeout, short 
     shared_ptr<MyChannelRequester> channelRequester(new MyChannelRequester());
     shared_ptr<Channel> channel(channelProvider->createChannel(name, channelRequester, priority));
     channelRequester->waitUntilConnected(timeout);
-
-    NeutronEventClient *p_nEC_tmp = NULL;
     shared_ptr<PVStructure> pvRequest = CreateRequest::create()->createRequest(request);
-    shared_ptr<MyMonitorRequester> monitorRequester(new MyMonitorRequester(limit, quiet,p_nEC_tmp));
+
+    shared_ptr<MyMonitorRequester> monitorRequester(new MyMonitorRequester(limit, quiet));
+  
     shared_ptr<Monitor> monitor = channel->createMonitor(monitorRequester, pvRequest);
+  //  shared_ptr<MonitorElement> update1;
+
+
+    //MyMonitorRequester* monitorNeutron = new MyMonitorRequester(limit, quiet);
+    
+
     // Wait until limit or forever..
     monitorRequester->waitUntilDone();
-
+    // cout << "my test data ::" << monitorNeutron->tofData << endl;
     // What to do for graceful shutdown of monitor?
     Status stat = monitor->stop();
     if (! stat.isSuccess())
@@ -90,7 +96,7 @@ int main(int argc,char *argv[])
     bool quiet = false;
     short priority = ChannelProvider::PRIORITY_DEFAULT;
     int limit = 0;
-
+    
     int opt;
     while ((opt = getopt(argc, argv, "r:w:p:l:mqh")) != -1)
     {
@@ -124,7 +130,6 @@ int main(int argc,char *argv[])
     }
     if (optind < argc)
         channel = argv[optind];
-
     cout << "Channel:  " << channel << endl;
     cout << "Request:  " << request << endl;
     cout << "Wait:     " << timeout << " sec" << endl;
@@ -134,8 +139,11 @@ int main(int argc,char *argv[])
     try
     {
         ClientFactory::start();
-        if (monitor)
-            doMonitor(channel, request, timeout, priority, limit, quiet);
+        if (1)
+            {
+                doMonitor(channel, request, timeout, priority, limit, quiet);
+               
+            }
         else
             getValue(channel, request, timeout);
         ClientFactory::stop();

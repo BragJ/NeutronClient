@@ -2,25 +2,16 @@
 cmake_minimum_required(VERSION 2.8 FATAL_ERROR)
 
 set(PROJ_NAME GPPDMonitorDataSvc)
-project(${PROJ_NAME} C CXX)
+project(${PROJ_NAME})
 
-set(CMAKE_C_COMPILER "/bin/gcc")  #调用gcc4.8.1，原本默认4.4.6
-set(CMAKE_CXX_COMPILER "/bin/g++") #调用g++4.8.1，原本默认4.4.6
-
-set(CMAKE_CXX_FLAGS "-std=c++11 -Wno-deprecated") 
-
-# Compile Flag
-IF(CMAKE_COMPILER_IS_GNUCXX)
-  ADD_DEFINITIONS("-Wall")
-ELSE()
-  MESSAGE(FATAL_ERROR "CMakeLists.txt has not been tested/written for your compiler.")
-ENDIF()
+#set(CMAKE_CXX_COMPILER "/bin/g++")
+#set(CMAKE_CXX_FLAGS "-std=c++11 -Wno-deprecated") 
 
 ## absolute path
-set(base_DIR /opt/egcs/epics/base)
 set(pvAccess_DIR /opt/egcs/epics/EPICS4/pvAccessCPP)
 set(pvData_DIR /opt/egcs/epics/EPICS4/pvDataCPP)
-
+set(base_DIR /opt/egcs/epics/base)
+set(base_linux_DIR /opt/egcs/epics/base/include/os/Linux)
 #SET(CMAKE_BUILD_TYPE Debug) 
 #----------------------------------------------------------------------------
 #find_package(EPICS4 REQUIRED)
@@ -31,24 +22,26 @@ set(pvData_DIR /opt/egcs/epics/EPICS4/pvDataCPP)
 
 
 ##Search Source Files
-include_directories(${PROJECT_SOURCE_DIR}/include ${pvAccess_DIR}/include  ${pvData_DIR}/include ${base_DIR}/include ${base_DIR}/include/os/Linux)
+include_directories(${PROJECT_SOURCE_DIR}/include ${pvAccess_DIR}/include  ${pvData_DIR}/include ${base_DIR}/include ${base_linux_DIR})
 
 file(GLOB sources ${PROJECT_SOURCE_DIR}/src/*.cpp)
 file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh)
 
-file(GLOB libs ${pvAccess_DIR}/lib/linux-x86_64/* ${pvData_DIR}/lib/linux-x86_64/*  ${base_DIR}/lib/linux-x86_64/libCom.a /lib64/libreadline.so.6 /lib64/libdl.so.2)
+file(GLOB libs ${PROJECT_SOURCE_DIR}/lib/* ${pvAccess_DIR}/lib/linux-x86_64/* ${pvData_DIR}/lib/linux-x86_64/* ${base_DIR}/lib/linux-x86_64/libCom.a /lib64/libreadline.so.6 /lib64/libdl.so.2)
 #----------------------------------------------------------------------------
 #add_executable(${PROJ_NAME} test.cpp ${sources} ${headers})
 
-ADD_LIBRARY(${PROJ_NAME} SHARED ${sources})
+ADD_LIBRARY(GPPDMonitorDataSvc SHARED ${sources})
 target_link_libraries(${PROJ_NAME} ${libs})
 
 # Output Path and Install Area
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)
 
-#INSTALL(TARGETS GPPDMonitorDataSvc LIBRARY DESTINATION lib)
+INSTALL(TARGETS GPPDMonitorDataSvc LIBRARY DESTINATION lib)
+INSTALL(DIRECTORY DataSvc DESTINATION include)
+INSTALL(DIRECTORY Data    DESTINATION include)
 
-
+#-L/home/wuhongyi/root/lib Core Cint RIO Net Hist Graf Graf3d Gpad Tree Rint Postscript Matrix Physics MathCore Thread  -pthread  m dl -rdynamic 
 
 
 

@@ -50,44 +50,44 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/egcs/myworkspace/spe_soft_src/NeutronClient
+CMAKE_SOURCE_DIR = /home/egcs/myworkspace/spe_soft_src/NeutronClient/test
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/egcs/myworkspace/spe_soft_src/NeutronClient/build
+CMAKE_BINARY_DIR = /home/egcs/myworkspace/spe_soft_src/NeutronClient/test/build
 
 #=============================================================================
-# Target rules for target CMakeFiles/GPPDMonitorDataSvc.dir
+# Target rules for target CMakeFiles/test.dir
 
 # All Build rule for target.
-CMakeFiles/GPPDMonitorDataSvc.dir/all:
-	$(MAKE) -f CMakeFiles/GPPDMonitorDataSvc.dir/build.make CMakeFiles/GPPDMonitorDataSvc.dir/depend
-	$(MAKE) -f CMakeFiles/GPPDMonitorDataSvc.dir/build.make CMakeFiles/GPPDMonitorDataSvc.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/egcs/myworkspace/spe_soft_src/NeutronClient/build/CMakeFiles  1 2
-	@echo "Built target GPPDMonitorDataSvc"
-.PHONY : CMakeFiles/GPPDMonitorDataSvc.dir/all
+CMakeFiles/test.dir/all:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/depend
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/egcs/myworkspace/spe_soft_src/NeutronClient/test/build/CMakeFiles  1
+	@echo "Built target test"
+.PHONY : CMakeFiles/test.dir/all
 
 # Include target in all.
-all: CMakeFiles/GPPDMonitorDataSvc.dir/all
+all: CMakeFiles/test.dir/all
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/GPPDMonitorDataSvc.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/egcs/myworkspace/spe_soft_src/NeutronClient/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/GPPDMonitorDataSvc.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/egcs/myworkspace/spe_soft_src/NeutronClient/build/CMakeFiles 0
-.PHONY : CMakeFiles/GPPDMonitorDataSvc.dir/rule
+CMakeFiles/test.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/egcs/myworkspace/spe_soft_src/NeutronClient/test/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/test.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/egcs/myworkspace/spe_soft_src/NeutronClient/test/build/CMakeFiles 0
+.PHONY : CMakeFiles/test.dir/rule
 
 # Convenience name for target.
-GPPDMonitorDataSvc: CMakeFiles/GPPDMonitorDataSvc.dir/rule
-.PHONY : GPPDMonitorDataSvc
+test: CMakeFiles/test.dir/rule
+.PHONY : test
 
 # clean rule for target.
-CMakeFiles/GPPDMonitorDataSvc.dir/clean:
-	$(MAKE) -f CMakeFiles/GPPDMonitorDataSvc.dir/build.make CMakeFiles/GPPDMonitorDataSvc.dir/clean
-.PHONY : CMakeFiles/GPPDMonitorDataSvc.dir/clean
+CMakeFiles/test.dir/clean:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/clean
+.PHONY : CMakeFiles/test.dir/clean
 
 # clean rule for target.
-clean: CMakeFiles/GPPDMonitorDataSvc.dir/clean
+clean: CMakeFiles/test.dir/clean
 .PHONY : clean
 
 #=============================================================================

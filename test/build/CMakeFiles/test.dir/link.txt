@@ -1,0 +1,1 @@
+/bin/c++       CMakeFiles/test.dir/test.cpp.o  -o test -rdynamic ../lib/libGPPDMonitorDataSvc.so /opt/egcs/epics/EPICS4/pvDataCPP/lib/linux-x86_64/libpvData.so -Wl,-rpath,/home/egcs/myworkspace/spe_soft_src/NeutronClient/test/lib:/opt/egcs/epics/EPICS4/pvDataCPP/lib/linux-x86_64 

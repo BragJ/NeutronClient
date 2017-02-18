@@ -42,10 +42,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/egcs/myworkspace/spe_soft_src/NeutronClient
+CMAKE_SOURCE_DIR = /home/egcs/myworkspace/spe_soft_src/NeutronClient/test
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/egcs/myworkspace/spe_soft_src/NeutronClient/build
+CMAKE_BINARY_DIR = /home/egcs/myworkspace/spe_soft_src/NeutronClient/test/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -72,9 +72,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/egcs/myworkspace/spe_soft_src/NeutronClient/build/CMakeFiles /home/egcs/myworkspace/spe_soft_src/NeutronClient/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/egcs/myworkspace/spe_soft_src/NeutronClient/test/build/CMakeFiles /home/egcs/myworkspace/spe_soft_src/NeutronClient/test/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/egcs/myworkspace/spe_soft_src/NeutronClient/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/egcs/myworkspace/spe_soft_src/NeutronClient/test/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -102,65 +102,41 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named GPPDMonitorDataSvc
+# Target rules for targets named test
 
 # Build rule for target.
-GPPDMonitorDataSvc: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 GPPDMonitorDataSvc
-.PHONY : GPPDMonitorDataSvc
+test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test
+.PHONY : test
 
 # fast build rule for target.
-GPPDMonitorDataSvc/fast:
-	$(MAKE) -f CMakeFiles/GPPDMonitorDataSvc.dir/build.make CMakeFiles/GPPDMonitorDataSvc.dir/build
-.PHONY : GPPDMonitorDataSvc/fast
+test/fast:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
+.PHONY : test/fast
 
-src/neutronClientRequestAndMonitor.o: src/neutronClientRequestAndMonitor.cpp.o
-.PHONY : src/neutronClientRequestAndMonitor.o
-
-# target to build an object file
-src/neutronClientRequestAndMonitor.cpp.o:
-	$(MAKE) -f CMakeFiles/GPPDMonitorDataSvc.dir/build.make CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientRequestAndMonitor.cpp.o
-.PHONY : src/neutronClientRequestAndMonitor.cpp.o
-
-src/neutronClientRequestAndMonitor.i: src/neutronClientRequestAndMonitor.cpp.i
-.PHONY : src/neutronClientRequestAndMonitor.i
-
-# target to preprocess a source file
-src/neutronClientRequestAndMonitor.cpp.i:
-	$(MAKE) -f CMakeFiles/GPPDMonitorDataSvc.dir/build.make CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientRequestAndMonitor.cpp.i
-.PHONY : src/neutronClientRequestAndMonitor.cpp.i
-
-src/neutronClientRequestAndMonitor.s: src/neutronClientRequestAndMonitor.cpp.s
-.PHONY : src/neutronClientRequestAndMonitor.s
-
-# target to generate assembly for a file
-src/neutronClientRequestAndMonitor.cpp.s:
-	$(MAKE) -f CMakeFiles/GPPDMonitorDataSvc.dir/build.make CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientRequestAndMonitor.cpp.s
-.PHONY : src/neutronClientRequestAndMonitor.cpp.s
-
-src/neutronClientStartMonitor.o: src/neutronClientStartMonitor.cpp.o
-.PHONY : src/neutronClientStartMonitor.o
+test.o: test.cpp.o
+.PHONY : test.o
 
 # target to build an object file
-src/neutronClientStartMonitor.cpp.o:
-	$(MAKE) -f CMakeFiles/GPPDMonitorDataSvc.dir/build.make CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientStartMonitor.cpp.o
-.PHONY : src/neutronClientStartMonitor.cpp.o
+test.cpp.o:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test.cpp.o
+.PHONY : test.cpp.o
 
-src/neutronClientStartMonitor.i: src/neutronClientStartMonitor.cpp.i
-.PHONY : src/neutronClientStartMonitor.i
+test.i: test.cpp.i
+.PHONY : test.i
 
 # target to preprocess a source file
-src/neutronClientStartMonitor.cpp.i:
-	$(MAKE) -f CMakeFiles/GPPDMonitorDataSvc.dir/build.make CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientStartMonitor.cpp.i
-.PHONY : src/neutronClientStartMonitor.cpp.i
+test.cpp.i:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test.cpp.i
+.PHONY : test.cpp.i
 
-src/neutronClientStartMonitor.s: src/neutronClientStartMonitor.cpp.s
-.PHONY : src/neutronClientStartMonitor.s
+test.s: test.cpp.s
+.PHONY : test.s
 
 # target to generate assembly for a file
-src/neutronClientStartMonitor.cpp.s:
-	$(MAKE) -f CMakeFiles/GPPDMonitorDataSvc.dir/build.make CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientStartMonitor.cpp.s
-.PHONY : src/neutronClientStartMonitor.cpp.s
+test.cpp.s:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test.cpp.s
+.PHONY : test.cpp.s
 
 # Help Target
 help:
@@ -168,15 +144,12 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... GPPDMonitorDataSvc"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... src/neutronClientRequestAndMonitor.o"
-	@echo "... src/neutronClientRequestAndMonitor.i"
-	@echo "... src/neutronClientRequestAndMonitor.s"
-	@echo "... src/neutronClientStartMonitor.o"
-	@echo "... src/neutronClientStartMonitor.i"
-	@echo "... src/neutronClientStartMonitor.s"
+	@echo "... test"
+	@echo "... test.o"
+	@echo "... test.i"
+	@echo "... test.s"
 .PHONY : help
 
 
