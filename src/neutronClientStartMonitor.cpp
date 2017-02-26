@@ -6,12 +6,14 @@
   using std::endl;
   using std::string;
   using std::dynamic_pointer_cast;
-using std::exception;
-using std::runtime_error;
+  using std::exception;
+  using std::runtime_error;
 	
   using std::tr1::shared_ptr;
   using namespace epics::pvData;
   using namespace epics::pvAccess;
+
+
 bool neutronClientStartMonitor::createFactory()
 {
 	  try {

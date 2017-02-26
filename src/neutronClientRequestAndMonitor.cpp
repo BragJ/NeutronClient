@@ -169,17 +169,17 @@ void MyMonitorRequester::monitorEvent(MonitorPtr const & monitor)
                 next_run = now + 10.0;
             }
         }
-        else
-        {
-            //  用于输出structure结构
-            // cout << "Monitor:\n";
+        // else
+        // {
+        //     //  用于输出structure结构
+        //     // cout << "Monitor:\n";
 
-            // cout << "Changed: " << *update->changedBitSet.get() << endl;
-            // cout << "Overrun: " << *update->overrunBitSet.get() << endl;
-            // important point  here  here 
-            //update->pvStructurePtr->dumpValue(cout);
-            cout << endl;
-        }
+        //     // cout << "Changed: " << *update->changedBitSet.get() << endl;
+        //     // cout << "Overrun: " << *update->overrunBitSet.get() << endl;
+        //     // important point  here  here 
+        //     //update->pvStructurePtr->dumpValue(cout);
+        //     cout << endl;
+        // }
         monitor->release(update);
     }
     ++ monitors;
