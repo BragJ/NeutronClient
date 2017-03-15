@@ -38,15 +38,11 @@ file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh)
 
 file(GLOB libs ${pvAccess_DIR}/lib/linux-x86_64/* ${pvData_DIR}/lib/linux-x86_64/*  ${base_DIR}/lib/linux-x86_64/libCom.a /lib64/libreadline.so.6 /lib64/libdl.so.2)
 #----------------------------------------------------------------------------
-#add_executable(${PROJ_NAME} test.cpp ${sources} ${headers})
 
-ADD_LIBRARY(${PROJ_NAME} SHARED ${sources})
+add_executable(${PROJ_NAME} test.cpp ${sources} ${headers})
+
 target_link_libraries(${PROJ_NAME} ${libs})
 
-# Output Path and Install Area
-SET(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)
-
-#INSTALL(TARGETS GPPDMonitorDataSvc LIBRARY DESTINATION lib)
 
 
 

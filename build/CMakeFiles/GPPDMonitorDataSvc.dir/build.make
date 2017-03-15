@@ -38,10 +38,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/egcs/myworkspace/spe_soft_src/NeutronClient
+CMAKE_SOURCE_DIR = /home/egcs/Desktop/NeutronClient
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/egcs/myworkspace/spe_soft_src/NeutronClient/build
+CMAKE_BINARY_DIR = /home/egcs/Desktop/NeutronClient/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/GPPDMonitorDataSvc.dir/depend.make
@@ -52,19 +52,42 @@ include CMakeFiles/GPPDMonitorDataSvc.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/GPPDMonitorDataSvc.dir/flags.make
 
+CMakeFiles/GPPDMonitorDataSvc.dir/test.cpp.o: CMakeFiles/GPPDMonitorDataSvc.dir/flags.make
+CMakeFiles/GPPDMonitorDataSvc.dir/test.cpp.o: ../test.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/egcs/Desktop/NeutronClient/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/GPPDMonitorDataSvc.dir/test.cpp.o"
+	/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/GPPDMonitorDataSvc.dir/test.cpp.o -c /home/egcs/Desktop/NeutronClient/test.cpp
+
+CMakeFiles/GPPDMonitorDataSvc.dir/test.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GPPDMonitorDataSvc.dir/test.cpp.i"
+	/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/egcs/Desktop/NeutronClient/test.cpp > CMakeFiles/GPPDMonitorDataSvc.dir/test.cpp.i
+
+CMakeFiles/GPPDMonitorDataSvc.dir/test.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GPPDMonitorDataSvc.dir/test.cpp.s"
+	/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/egcs/Desktop/NeutronClient/test.cpp -o CMakeFiles/GPPDMonitorDataSvc.dir/test.cpp.s
+
+CMakeFiles/GPPDMonitorDataSvc.dir/test.cpp.o.requires:
+.PHONY : CMakeFiles/GPPDMonitorDataSvc.dir/test.cpp.o.requires
+
+CMakeFiles/GPPDMonitorDataSvc.dir/test.cpp.o.provides: CMakeFiles/GPPDMonitorDataSvc.dir/test.cpp.o.requires
+	$(MAKE) -f CMakeFiles/GPPDMonitorDataSvc.dir/build.make CMakeFiles/GPPDMonitorDataSvc.dir/test.cpp.o.provides.build
+.PHONY : CMakeFiles/GPPDMonitorDataSvc.dir/test.cpp.o.provides
+
+CMakeFiles/GPPDMonitorDataSvc.dir/test.cpp.o.provides.build: CMakeFiles/GPPDMonitorDataSvc.dir/test.cpp.o
+
 CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientRequestAndMonitor.cpp.o: CMakeFiles/GPPDMonitorDataSvc.dir/flags.make
 CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientRequestAndMonitor.cpp.o: ../src/neutronClientRequestAndMonitor.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/egcs/myworkspace/spe_soft_src/NeutronClient/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/egcs/Desktop/NeutronClient/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientRequestAndMonitor.cpp.o"
-	/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientRequestAndMonitor.cpp.o -c /home/egcs/myworkspace/spe_soft_src/NeutronClient/src/neutronClientRequestAndMonitor.cpp
+	/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientRequestAndMonitor.cpp.o -c /home/egcs/Desktop/NeutronClient/src/neutronClientRequestAndMonitor.cpp
 
 CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientRequestAndMonitor.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientRequestAndMonitor.cpp.i"
-	/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/egcs/myworkspace/spe_soft_src/NeutronClient/src/neutronClientRequestAndMonitor.cpp > CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientRequestAndMonitor.cpp.i
+	/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/egcs/Desktop/NeutronClient/src/neutronClientRequestAndMonitor.cpp > CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientRequestAndMonitor.cpp.i
 
 CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientRequestAndMonitor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientRequestAndMonitor.cpp.s"
-	/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/egcs/myworkspace/spe_soft_src/NeutronClient/src/neutronClientRequestAndMonitor.cpp -o CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientRequestAndMonitor.cpp.s
+	/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/egcs/Desktop/NeutronClient/src/neutronClientRequestAndMonitor.cpp -o CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientRequestAndMonitor.cpp.s
 
 CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientRequestAndMonitor.cpp.o.requires:
 .PHONY : CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientRequestAndMonitor.cpp.o.requires
@@ -77,17 +100,17 @@ CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientRequestAndMonitor.cpp.o.provi
 
 CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientStartMonitor.cpp.o: CMakeFiles/GPPDMonitorDataSvc.dir/flags.make
 CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientStartMonitor.cpp.o: ../src/neutronClientStartMonitor.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/egcs/myworkspace/spe_soft_src/NeutronClient/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/egcs/Desktop/NeutronClient/build/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientStartMonitor.cpp.o"
-	/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientStartMonitor.cpp.o -c /home/egcs/myworkspace/spe_soft_src/NeutronClient/src/neutronClientStartMonitor.cpp
+	/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientStartMonitor.cpp.o -c /home/egcs/Desktop/NeutronClient/src/neutronClientStartMonitor.cpp
 
 CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientStartMonitor.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientStartMonitor.cpp.i"
-	/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/egcs/myworkspace/spe_soft_src/NeutronClient/src/neutronClientStartMonitor.cpp > CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientStartMonitor.cpp.i
+	/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/egcs/Desktop/NeutronClient/src/neutronClientStartMonitor.cpp > CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientStartMonitor.cpp.i
 
 CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientStartMonitor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientStartMonitor.cpp.s"
-	/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/egcs/myworkspace/spe_soft_src/NeutronClient/src/neutronClientStartMonitor.cpp -o CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientStartMonitor.cpp.s
+	/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/egcs/Desktop/NeutronClient/src/neutronClientStartMonitor.cpp -o CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientStartMonitor.cpp.s
 
 CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientStartMonitor.cpp.o.requires:
 .PHONY : CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientStartMonitor.cpp.o.requires
@@ -100,30 +123,33 @@ CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientStartMonitor.cpp.o.provides.b
 
 # Object files for target GPPDMonitorDataSvc
 GPPDMonitorDataSvc_OBJECTS = \
+"CMakeFiles/GPPDMonitorDataSvc.dir/test.cpp.o" \
 "CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientRequestAndMonitor.cpp.o" \
 "CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientStartMonitor.cpp.o"
 
 # External object files for target GPPDMonitorDataSvc
 GPPDMonitorDataSvc_EXTERNAL_OBJECTS =
 
-lib/libGPPDMonitorDataSvc.so: CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientRequestAndMonitor.cpp.o
-lib/libGPPDMonitorDataSvc.so: CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientStartMonitor.cpp.o
-lib/libGPPDMonitorDataSvc.so: CMakeFiles/GPPDMonitorDataSvc.dir/build.make
-lib/libGPPDMonitorDataSvc.so: /opt/egcs/epics/EPICS4/pvAccessCPP/lib/linux-x86_64/libpvAccess.so
-lib/libGPPDMonitorDataSvc.so: /opt/egcs/epics/EPICS4/pvAccessCPP/lib/linux-x86_64/libpvAccess.a
-lib/libGPPDMonitorDataSvc.so: /opt/egcs/epics/EPICS4/pvDataCPP/lib/linux-x86_64/libpvData.so
-lib/libGPPDMonitorDataSvc.so: /opt/egcs/epics/EPICS4/pvDataCPP/lib/linux-x86_64/libpvData.a
-lib/libGPPDMonitorDataSvc.so: /opt/egcs/epics/base/lib/linux-x86_64/libCom.a
-lib/libGPPDMonitorDataSvc.so: /lib64/libreadline.so.6
-lib/libGPPDMonitorDataSvc.so: /lib64/libdl.so.2
-lib/libGPPDMonitorDataSvc.so: CMakeFiles/GPPDMonitorDataSvc.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library lib/libGPPDMonitorDataSvc.so"
+GPPDMonitorDataSvc: CMakeFiles/GPPDMonitorDataSvc.dir/test.cpp.o
+GPPDMonitorDataSvc: CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientRequestAndMonitor.cpp.o
+GPPDMonitorDataSvc: CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientStartMonitor.cpp.o
+GPPDMonitorDataSvc: CMakeFiles/GPPDMonitorDataSvc.dir/build.make
+GPPDMonitorDataSvc: /opt/egcs/epics/EPICS4/pvAccessCPP/lib/linux-x86_64/libpvAccess.so
+GPPDMonitorDataSvc: /opt/egcs/epics/EPICS4/pvAccessCPP/lib/linux-x86_64/libpvAccess.a
+GPPDMonitorDataSvc: /opt/egcs/epics/EPICS4/pvDataCPP/lib/linux-x86_64/libpvData.so
+GPPDMonitorDataSvc: /opt/egcs/epics/EPICS4/pvDataCPP/lib/linux-x86_64/libpvData.a
+GPPDMonitorDataSvc: /opt/egcs/epics/base/lib/linux-x86_64/libCom.a
+GPPDMonitorDataSvc: /lib64/libreadline.so.6
+GPPDMonitorDataSvc: /lib64/libdl.so.2
+GPPDMonitorDataSvc: CMakeFiles/GPPDMonitorDataSvc.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable GPPDMonitorDataSvc"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/GPPDMonitorDataSvc.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/GPPDMonitorDataSvc.dir/build: lib/libGPPDMonitorDataSvc.so
+CMakeFiles/GPPDMonitorDataSvc.dir/build: GPPDMonitorDataSvc
 .PHONY : CMakeFiles/GPPDMonitorDataSvc.dir/build
 
+CMakeFiles/GPPDMonitorDataSvc.dir/requires: CMakeFiles/GPPDMonitorDataSvc.dir/test.cpp.o.requires
 CMakeFiles/GPPDMonitorDataSvc.dir/requires: CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientRequestAndMonitor.cpp.o.requires
 CMakeFiles/GPPDMonitorDataSvc.dir/requires: CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientStartMonitor.cpp.o.requires
 .PHONY : CMakeFiles/GPPDMonitorDataSvc.dir/requires
@@ -133,6 +159,6 @@ CMakeFiles/GPPDMonitorDataSvc.dir/clean:
 .PHONY : CMakeFiles/GPPDMonitorDataSvc.dir/clean
 
 CMakeFiles/GPPDMonitorDataSvc.dir/depend:
-	cd /home/egcs/myworkspace/spe_soft_src/NeutronClient/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/egcs/myworkspace/spe_soft_src/NeutronClient /home/egcs/myworkspace/spe_soft_src/NeutronClient /home/egcs/myworkspace/spe_soft_src/NeutronClient/build /home/egcs/myworkspace/spe_soft_src/NeutronClient/build /home/egcs/myworkspace/spe_soft_src/NeutronClient/build/CMakeFiles/GPPDMonitorDataSvc.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/egcs/Desktop/NeutronClient/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/egcs/Desktop/NeutronClient /home/egcs/Desktop/NeutronClient /home/egcs/Desktop/NeutronClient/build /home/egcs/Desktop/NeutronClient/build /home/egcs/Desktop/NeutronClient/build/CMakeFiles/GPPDMonitorDataSvc.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/GPPDMonitorDataSvc.dir/depend
 

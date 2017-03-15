@@ -1,17 +1,17 @@
 #include "neutronClientStartMonitor.hh"
 
 
-  using std::cout;
-  using std::cerr;
-  using std::endl;
-  using std::string;
-  using std::dynamic_pointer_cast;
-  using std::exception;
-  using std::runtime_error;
-	
-  using std::tr1::shared_ptr;
-  using namespace epics::pvData;
-  using namespace epics::pvAccess;
+using std::cout;
+using std::cerr;
+using std::endl;
+using std::string;
+using std::dynamic_pointer_cast;
+using std::exception;
+using std::runtime_error;
+
+using std::tr1::shared_ptr;
+using namespace epics::pvData;
+using namespace epics::pvAccess;
 
 
 bool neutronClientStartMonitor::createFactory()
@@ -30,6 +30,7 @@ bool neutronClientStartMonitor::createFactory()
 
 }
 
+
 void neutronClientStartMonitor::doMonitor(string const &name, string const &request, double timeout, short priority, int limit, bool quiet)
 {
     ChannelProvider::shared_pointer channelProvider =
@@ -40,17 +41,17 @@ void neutronClientStartMonitor::doMonitor(string const &name, string const &requ
     shared_ptr<MyChannelRequester> channelRequester(new MyChannelRequester());
     shared_ptr<Channel> channel(channelProvider->createChannel(name, channelRequester, priority));
     channelRequester->waitUntilConnected(timeout);
-    shared_ptr<PVStructure> pvRequest = CreateRequest::create()->createRequest(request);
 
+    cout<<  "the request:::" << request << endl;
+    shared_ptr<PVStructure> pvRequest = CreateRequest::create()->createRequest(request);
     shared_ptr<MyMonitorRequester> monitorRequester(new MyMonitorRequester(limit, quiet));
-  
     shared_ptr<Monitor> monitor = channel->createMonitor(monitorRequester, pvRequest);
-  //  shared_ptr<MonitorElement> update1;
-    //MyMonitorRequester* monitorNeutron = new MyMonitorRequester(limit, quiet);
     // Wait until limit or forever..
+    cout<<  "the first struct:::" << *(monitorRequester->getPulseData().pTimeOfFlight)<< endl;
     monitorRequester->waitUntilDone();
-    // cout << "my test data ::" << monitorNeutron->tofData << endl;
-    // What to do for graceful shutdown of monitor?
+   
+    //What to do for graceful shutdown of monitor?
+    
     Status stat = monitor->stop();
     if (! stat.isSuccess())
         cout << "Cannot stop monitor, " << stat << endl;

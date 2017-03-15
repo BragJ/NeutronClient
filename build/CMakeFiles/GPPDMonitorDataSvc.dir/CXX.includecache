@@ -62,15 +62,23 @@ getopt.h
 neutronClientRequestAndMonitor.hh
 ../include/neutronClientRequestAndMonitor.hh
 
-/home/egcs/myworkspace/spe_soft_src/NeutronClient/src/neutronClientRequestAndMonitor.cpp
+/home/egcs/Desktop/NeutronClient/src/neutronClientRequestAndMonitor.cpp
 iostream
 -
 neutronClientRequestAndMonitor.hh
-/home/egcs/myworkspace/spe_soft_src/NeutronClient/src/neutronClientRequestAndMonitor.hh
+/home/egcs/Desktop/NeutronClient/src/neutronClientRequestAndMonitor.hh
 
-/home/egcs/myworkspace/spe_soft_src/NeutronClient/src/neutronClientStartMonitor.cpp
+/home/egcs/Desktop/NeutronClient/src/neutronClientStartMonitor.cpp
 neutronClientStartMonitor.hh
-/home/egcs/myworkspace/spe_soft_src/NeutronClient/src/neutronClientStartMonitor.hh
+/home/egcs/Desktop/NeutronClient/src/neutronClientStartMonitor.hh
+
+/home/egcs/Desktop/NeutronClient/test.cpp
+iostream
+-
+getopt.h
+-
+neutronClientStartMonitor.hh
+/home/egcs/Desktop/NeutronClient/neutronClientStartMonitor.hh
 
 /opt/egcs/epics/EPICS4/pvAccessCPP/include/pv/clientFactory.h
 shareLib.h

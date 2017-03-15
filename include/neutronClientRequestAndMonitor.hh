@@ -26,14 +26,16 @@
 #include "nanoTimer.h"
 #endif
 
- using std::cout;
-  using std::cerr;
-  using std::endl;
-  using std::string;
+//#include "neutronClientStartMonitor.hh"
 
-  using std::tr1::shared_ptr;
-  using namespace epics::pvData;
-  using namespace epics::pvAccess;
+using std::cout;
+using std::cerr;
+using std::endl;
+using std::string;
+
+using std::tr1::shared_ptr;
+using namespace epics::pvData;
+using namespace epics::pvAccess;
 
 
 /** Requester implementation,
@@ -88,11 +90,17 @@ public:
             BitSet::shared_pointer const & bitSet);
 
     boolean waitUntilDone(double timeOut)
-    {
+    {   
         return done_event.wait(timeOut);
     }
 };
 
+typedef struct NeutronPulseData{
+
+  uint32_t *pTimeOfFlight;
+  uint32_t *pPixelID;  
+
+}NeutronPulseData;
 
 class MyMonitorRequester : public virtual MyRequester, public virtual MonitorRequester
 {
@@ -113,6 +121,7 @@ class MyMonitorRequester : public virtual MyRequester, public virtual MonitorReq
     uint64 last_pulse_id;
     uint64 missing_pulses;
     uint64 array_size_differences;
+    
 
     void checkUpdate(shared_ptr<PVStructure> const &structure);
 public:
@@ -122,18 +131,25 @@ public:
       next_run(epicsTime::getCurrent()),
       user_tag_offset(-1), tof_offset(-1), pixel_offset(-1),
       monitors(0), updates(0), overruns(0), last_pulse_id(0), missing_pulses(0), array_size_differences(0)
-    {}
+    {
+        uint32_t tem = 0;
+        uint32_t tem1 = 0;
+        mNeutronPulseDataTem.pTimeOfFlight = &tem;
+        mNeutronPulseDataTem.pPixelID = &tem1;
+    }
 
-        epics::pvData::uint32 pixelsLength;
+    epics::pvData::uint32 pixelsLength;
     epics::pvData::shared_vector<const epics::pvData::uint32> tofData;
     epics::pvData::shared_vector<const epics::pvData::uint32> pixelsData;
+    NeutronPulseData mNeutronPulseDataTem;
 
     void monitorConnect(Status const & status, MonitorPtr const & monitor, StructureConstPtr const & structure);
     void monitorEvent(MonitorPtr const & monitor);
     void unlisten(MonitorPtr const & monitor);
+    NeutronPulseData getPulseData();
 
     boolean waitUntilDone()
-    {
+    {   
         return done_event.wait();
     }
 };

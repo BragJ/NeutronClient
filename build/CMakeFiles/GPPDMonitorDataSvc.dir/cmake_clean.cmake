@@ -1,8 +1,9 @@
 FILE(REMOVE_RECURSE
+  "CMakeFiles/GPPDMonitorDataSvc.dir/test.cpp.o"
   "CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientRequestAndMonitor.cpp.o"
   "CMakeFiles/GPPDMonitorDataSvc.dir/src/neutronClientStartMonitor.cpp.o"
-  "lib/libGPPDMonitorDataSvc.pdb"
-  "lib/libGPPDMonitorDataSvc.so"
+  "GPPDMonitorDataSvc.pdb"
+  "GPPDMonitorDataSvc"
 )
 
 # Per-language clean rules from dependency scanning.

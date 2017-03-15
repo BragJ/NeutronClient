@@ -3,15 +3,15 @@
 
 #include "neutronClientRequestAndMonitor.hh"
 
-  using std::cout;
-  using std::cerr;
-  using std::endl;
-  using std::string;
-  using std::dynamic_pointer_cast;
+using std::cout;
+using std::cerr;
+using std::endl;
+using std::string;
+using std::dynamic_pointer_cast;
 
-  using std::tr1::shared_ptr;
-  using namespace epics::pvData;
-  using namespace epics::pvAccess;
+using std::tr1::shared_ptr;
+using namespace epics::pvData;
+using namespace epics::pvAccess;
 
 
 /** Requester implementation,
@@ -120,29 +120,44 @@ void MyMonitorRequester::monitorConnect(Status const & status, MonitorPtr const 
 }
 
 void MyMonitorRequester::monitorEvent(MonitorPtr const & monitor)
-{
-    
-    shared_ptr<MonitorElement> update;
+{  
+
+	cout << "pass pass go  go " <<endl;
+	shared_ptr<MonitorElement> update;
     while ((update = monitor->poll()))
     {
         // TODO Simulate slow client -> overruns on client side
         // epicsThreadSleep(0.1);
         // 回调函数
         ++updates;
+
         checkUpdate(update->pvStructurePtr);
-        
          epics::pvData::PVUIntArrayPtr pixelsPtr_client = update->pvStructurePtr->getSubField<epics::pvData::PVUIntArray>("pixel.value");
          epics::pvData::PVUIntArrayPtr tofPtr_client = update->pvStructurePtr->getSubField<epics::pvData::PVUIntArray>("time_of_flight.value");
          if(pixelsPtr_client && tofPtr_client) {
-             pixelsLength = pixelsPtr_client->getLength();
+         
+            pixelsLength = pixelsPtr_client->getLength();
             pixelsData = pixelsPtr_client->view();
             tofData = tofPtr_client->view();
-           cout << "the pixels Data is ::  "<< pixelsData <<endl;
-            cout <<  " the tof Data is ::" << tofData << endl;
-        }        
+
+            mNeutronPulseDataTem.pTimeOfFlight = new uint32_t[pixelsLength];
+            mNeutronPulseDataTem.pPixelID = new uint32_t[pixelsLength];
+            for(int list_num_pixel = 0; list_num_pixel<pixelsLength; list_num_pixel++){
+
+            mNeutronPulseDataTem.pTimeOfFlight[list_num_pixel]= tofData[list_num_pixel];
+            mNeutronPulseDataTem.pPixelID[list_num_pixel]= tofData[list_num_pixel];
+            
+        	}
+ 
+            cout << " the pixels Data is ::  "<< pixelsData[0] <<endl;
+            cout <<  " the tof Data is ::" << tofData[0] << endl;
+        }      
+
+        getPulseData();
         // update->changedBitSet indicates which elements have changed.
         // update->overrunBitSet indicates which elements have changed more than once,
         // i.e. we missed one (or more !) updates.
+
         if (! update->overrunBitSet->isEmpty())
             ++overruns;
         if (quiet)
@@ -151,12 +166,7 @@ void MyMonitorRequester::monitorEvent(MonitorPtr const & monitor)
             if (now >= next_run)
             {
                 double received_perc = 100.0 * updates / (updates + missing_pulses);
-                //cout << updates << " updates, "
-                  //   << overruns << " overruns, "
-                    // << missing_pulses << " missing pulses, "
-                    // << array_size_differences << " array size differences, "
-                    // << "received " << fixed << setprecision(1) << received_perc << "%"
-                     //<< endl;
+         
                 overruns = 0;
                 missing_pulses = 0;
                 updates = 0;
@@ -181,14 +191,28 @@ void MyMonitorRequester::monitorEvent(MonitorPtr const & monitor)
         //     cout << endl;
         // }
         monitor->release(update);
+        delete mNeutronPulseDataTem.pTimeOfFlight;
+
     }
     ++ monitors;
+     cout << " 222222...... "<<endl;
     if (limit > 0  &&  monitors >= limit)
     {
     	cout << "Received " << monitors << " monitors" << endl;
     	done_event.signal();
     }
+    
+    //cout << "pass pass go  go " <<endl;
 }
+
+NeutronPulseData MyMonitorRequester::getPulseData()
+{
+
+    cout <<" print the structure::" <<*(mNeutronPulseDataTem.pTimeOfFlight)<<endl;
+    return mNeutronPulseDataTem;
+
+}
+
 
 void MyMonitorRequester::checkUpdate(shared_ptr<PVStructure> const &pvStructure)
 {
@@ -222,7 +246,8 @@ void MyMonitorRequester::checkUpdate(shared_ptr<PVStructure> const &pvStructure)
     last_pulse_id = pulse_id;
 
     // Compare lengths of tof and pixel arrays
-    shared_ptr<PVUIntArray> tof = dynamic_pointer_cast<PVUIntArray>(pvStructure->getSubField(tof_offset));
+    shared_ptr<PVUIntArray> tof =
+     dynamic_pointer_cast<PVUIntArray>(pvStructure->getSubField(tof_offset));
     epics::pvData::shared_vector<const epics::pvData::uint32> tofData = tof->view();
     if (!tof)
     {
@@ -254,6 +279,7 @@ void MyMonitorRequester::checkUpdate(shared_ptr<PVStructure> const &pvStructure)
         }
     }
 }
+
 
 void MyMonitorRequester::unlisten(MonitorPtr const & monitor)
 {
